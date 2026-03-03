@@ -8,7 +8,7 @@
 // @license      MIT
 // ==/UserScript==
 
-const MAX_ATTEMPTS = 10;
+const MAX_ATTEMPTS = 25;
 const RETRY_DELAY = 500;
 const CLICK_DELAY = 500;
 const POLL_INTERVAL = 300;
