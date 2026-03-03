@@ -8,7 +8,7 @@
 // @license      MIT
 // ==/UserScript==
 
-const MAX_ATTEMPTS = 10;
+const MAX_ATTEMPTS = 65;
 const RETRY_DELAY = 500;
 const CLICK_DELAY = 500;
 const POLL_INTERVAL = 300;
@@ -52,14 +52,14 @@ function clickSectionsSequentially(sections) {
     clickNext();
 }
 
-function findSections(attempt = 1) {
+function findSections(attempt = 5) {
     const sections = document.querySelector(".tutorial-toc-sections");
     if (!sections) {
         if (attempt >= MAX_ATTEMPTS) {
             console.log("[Edmentum Skip Through Tutorials]: Failed to locate sect. after " + attempt + " attempts.");
             return;
         }
-        setTimeout(() => findSections(attempt + 1), RETRY_DELAY);
+        setTimeout(() => findSections(attempt + 5), RETRY_DELAY);
     } else {
         enableButtons(sections);
         clickSectionsSequentially(sections);
